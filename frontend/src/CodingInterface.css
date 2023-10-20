@@ -1,0 +1,94 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #ffffff;
+}
+
+
+
+.console-output {
+    height: 200px;
+    border: 1px solid #333;
+    padding: 10px;
+    background-color: #111;
+    color: #eee;
+}
+
+
+
+
+.container {
+    display: flex;
+    height: 100vh; /* 100%から100vhに変更 */
+    position: relative;
+}
+
+
+.resize {
+    cursor: ew-resize;
+    background-color: Gray;
+    height: 100%;
+    width: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* 真ん中に持ってくるための補正を50%に変更 */
+    z-index: 2;
+    background-image: linear-gradient(to bottom, transparent 45%, white 45%, white 55%, transparent 55%); /* 二重線のデザイン */
+    transition: background-color 0.3s; /* 背景色の変更をスムーズにする */
+}
+
+.resizer:hover {
+    background-color: darkgray; /* ホバー時の背景色 */
+}
+
+
+
+.left-panel, .right-panel {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: dimgray; /* VS Codeのダークテーマの背景色に近い色 */
+    color: #ffffff; /* テキストの色もVS Codeのダークテーマに近づけました */
+    padding: 20px;
+}
+
+.tabs {
+    display: flex;
+    background-color: #333;
+    border-bottom: 2px solid #444;  /* Added a bottom border for separation */
+    padding: 5px 0;                 /* Added padding for breathing space */
+}
+
+.tabs button {
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;  /* Added transform for a subtle effect */
+    margin-right: 5px;               /* Spacing between buttons */
+    border-radius: 5px;              /* Rounded corners */
+}
+
+.tabs button.active {
+    background-color: #444;
+    transform: scale(1.05);          /* Slightly enlarges the active tab */
+}
+
+.tabs button:last-child {
+    margin-right: 0;                 /* Ensures no margin for the last button */
+}
+
+.tabs button:hover {
+    background-color: #666;
+}
+

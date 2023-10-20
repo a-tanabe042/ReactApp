@@ -1,0 +1,25 @@
+/* リストの点を削除 */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* フレックスボックスを適用 */
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nav ul {
+    display: flex;
+    gap: 20px;  /* ボタンの間にスペースを追加 */
+  }
+  
+  nav li {
+    margin: 0;
+  }
+  
+  /* 以下、ボタンのスタイリングなど、他の任意のスタイルを追加できます。 */
+
