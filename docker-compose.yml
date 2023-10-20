@@ -1,0 +1,55 @@
+version: "3"
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: docker_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      network1:
+        aliases:
+          - front
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.server
+    image: docker_backend
+    ports:
+      - "3001:3001"
+    container_name: myBackend
+    networks:
+      network1:
+        aliases:
+          - api
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # Docker socketのマウント
+
+  sandbox:
+    build:
+      context: ./sandbox
+      dockerfile: Dockerfile.sandbox
+    image: docker_sandbox
+    ports:
+      - "8080:8080"
+    networks:
+      network1:
+    restart: "no"
+
+  sandbox_react:
+    build:
+      context: ./sandbox_react
+      dockerfile: Dockerfile.sandbox
+    image: docker_sandbox_react
+    ports:
+      - "8079:8079"
+    networks:
+      network1:
+    restart: "no"
+
+networks:
+  network1:
